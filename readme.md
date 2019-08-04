@@ -173,11 +173,7 @@ body: 'body of post three',
 ### 10. db.{collection_name}.find().sort({ key : 1}).pretty()
 
 ```js
-> db.posts.find().sort({ title: 1}).pretty
-function () {
-    this._prettyShell = true;
-    return this;
-}
+
 > db.posts.find().sort({ title: 1}).pretty();
 {
 	"_id" : ObjectId("5d4715c74e356b844de7a23a"),
