@@ -146,3 +146,125 @@ body: 'body of post three',
 	"date" : "Sun Aug 04 2019 23:02:44 GMT+0530 (IST)"
 }
 ```
+
+### 9. db.{collection_name}.find({ {key} : {value} )
+
+```js
+> db.posts.find({category: 'News'}).pretty();
+
+{
+	"_id" : ObjectId("5d4715c74e356b844de7a23a"),
+	"title" : "Post One",
+	"body" : "body of post one",
+	"category" : "News",
+	"likes" : 4,
+	"tags" : [
+		"news",
+		"events"
+	],
+	"user" : {
+		"name" : "John Doe",
+		"status" : "auhor"
+	},
+	"date" : "Sun Aug 04 2019 22:58:39 GMT+0530 (IST)"
+}
+```
+
+### 10. db.{collection_name}.find().sort({ key : 1}).pretty()
+
+```js
+> db.posts.find().sort({ title: 1}).pretty
+function () {
+    this._prettyShell = true;
+    return this;
+}
+> db.posts.find().sort({ title: 1}).pretty();
+{
+	"_id" : ObjectId("5d4715c74e356b844de7a23a"),
+	"title" : "Post One",
+	"body" : "body of post one",
+	"category" : "News",
+	"likes" : 4,
+	"tags" : [
+		"news",
+		"events"
+	],
+	"user" : {
+		"name" : "John Doe",
+		"status" : "auhor"
+	},
+	"date" : "Sun Aug 04 2019 22:58:39 GMT+0530 (IST)"
+}
+{
+	"_id" : ObjectId("5d4716bc4e356b844de7a23c"),
+	"title" : "Post Three",
+	"body" : "body of post three",
+	"category" : "Politics",
+	"date" : "Sun Aug 04 2019 23:02:44 GMT+0530 (IST)"
+}
+{
+	"_id" : ObjectId("5d4716bc4e356b844de7a23b"),
+	"title" : "Post Two",
+	"body" : "body of post two",
+	"category" : "sports",
+	"likes" : 56,
+	"tags" : [
+		"sports",
+		"tennis"
+	],
+	"user" : {
+		"name" : "James Black",
+		"status" : "Journalist"
+	},
+	"date" : "Sun Aug 04 2019 23:02:44 GMT+0530 (IST)"
+}
+
+```
+__Note__: Sorts in ascending order of the key specified if __1__ is used as value after sort key 
+
+### 11. db.{collection_name}.find().sort({ key : -1}).pretty()
+
+```js
+> db.posts.find().sort({ title: -1}).pretty();
+{
+	"_id" : ObjectId("5d4716bc4e356b844de7a23b"),
+	"title" : "Post Two",
+	"body" : "body of post two",
+	"category" : "sports",
+	"likes" : 56,
+	"tags" : [
+		"sports",
+		"tennis"
+	],
+	"user" : {
+		"name" : "James Black",
+		"status" : "Journalist"
+	},
+	"date" : "Sun Aug 04 2019 23:02:44 GMT+0530 (IST)"
+}
+{
+	"_id" : ObjectId("5d4716bc4e356b844de7a23c"),
+	"title" : "Post Three",
+	"body" : "body of post three",
+	"category" : "Politics",
+	"date" : "Sun Aug 04 2019 23:02:44 GMT+0530 (IST)"
+}
+{
+	"_id" : ObjectId("5d4715c74e356b844de7a23a"),
+	"title" : "Post One",
+	"body" : "body of post one",
+	"category" : "News",
+	"likes" : 4,
+	"tags" : [
+		"news",
+		"events"
+	],
+	"user" : {
+		"name" : "John Doe",
+		"status" : "auhor"
+	},
+	"date" : "Sun Aug 04 2019 22:58:39 GMT+0530 (IST)"
+}
+
+```
+__Note__: Sorts in descending order of the key specified if __-1__ is used as value for sort key
